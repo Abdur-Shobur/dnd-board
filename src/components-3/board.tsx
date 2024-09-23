@@ -196,43 +196,44 @@ export default function BoardMain2() {
 
 	return (
 		<div className="w-full">
-			<DragDropContext onDragEnd={handleDragDrop}>
-				<Droppable droppableId="ROOT" type="COLUMN" direction="horizontal">
-					{(provided) => (
-						<div
-							className="flex w-full min-h-96 rounded-md overflow-x-scroll md:overflow-hidden"
-							{...provided.droppableProps}
-							ref={provided.innerRef}
-						>
-							{columnsOrder.map((colId, index) => {
-								const columnData = data[colId];
-								return (
-									<Draggable
-										draggableId={columnData.id}
-										key={columnData.id}
-										index={index}
-									>
-										{(provided) => (
-											<div
-												className="min-w-64 border border-skin-color-1 rounded-xl shadow p-3 flex flex-col max-w-xs m-3"
-												ref={provided.innerRef}
-												{...provided.draggableProps}
-											>
-												<div {...provided.dragHandleProps}>
-													<DealTitle columnData={columnData} />
+			<div className="select-none">
+				<DragDropContext onDragEnd={handleDragDrop}>
+					<Droppable droppableId="ROOT" type="COLUMN" direction="horizontal">
+						{(provided) => (
+							<div
+								className="flex w-full min-h-96 rounded-md overflow-x-scroll md:overflow-hidden"
+								{...provided.droppableProps}
+								ref={provided.innerRef}
+							>
+								{columnsOrder.map((colId, index) => {
+									const columnData = data[colId];
+									return (
+										<Draggable
+											draggableId={columnData.id}
+											key={columnData.id}
+											index={index}
+										>
+											{(provided) => (
+												<div
+													className="min-w-64 border border-skin-color-1 rounded-xl shadow p-3 flex flex-col max-w-xs m-3"
+													ref={provided.innerRef}
+													{...provided.draggableProps}
+												>
+													<div {...provided.dragHandleProps}>
+														<DealTitle columnData={columnData} />
+													</div>
+													<Column {...columnData} ITEMS={myItemsRecord} />
 												</div>
-												<Column {...columnData} ITEMS={myItemsRecord} />
-											</div>
-										)}
-									</Draggable>
-								);
-							})}
-							{provided.placeholder}
-						</div>
-					)}
-				</Droppable>
-			</DragDropContext>
-
+											)}
+										</Draggable>
+									);
+								})}
+								{provided.placeholder}
+							</div>
+						)}
+					</Droppable>
+				</DragDropContext>
+			</div>
 			{/* Preview Section */}
 			<div className="flex">
 				<div
@@ -245,7 +246,7 @@ export default function BoardMain2() {
 					}}
 					className="mt-4 p-4 border border-gray-300 rounded-lg shadow-lg bg-gray-50"
 				>
-					<h2 className="text-lg font-bold">Preview</h2>
+					<h2 className="text-lg font-bold">Preview API Submission</h2>
 					<p className="mt-2">
 						<strong>API:</strong> {preview.api}
 					</p>
