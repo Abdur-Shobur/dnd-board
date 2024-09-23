@@ -172,7 +172,7 @@ export default function BoardMain2() {
 					source: updatedData[source.droppableId],
 					destination: updatedData[destination.droppableId],
 				},
-				api: `/api/save-column/${source.droppableId} || /api/save-column/${destination.droppableId}`,
+				api: `from:->/api/save-column/${source.droppableId} || to->/api/save-column/${destination.droppableId}`,
 			});
 			// Update backend with new item order for both columns
 			await Promise.all([
