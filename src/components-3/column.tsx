@@ -9,7 +9,7 @@ const Column: React.FC<ColumnProps> = ({ itemsOrder, id, ITEMS }) => {
 		<Droppable droppableId={id}>
 			{(provided) => (
 				<div
-					className="min-h-full"
+					className="min-h-[85%]"
 					{...provided.droppableProps}
 					ref={provided.innerRef}
 				>

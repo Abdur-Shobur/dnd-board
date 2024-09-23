@@ -239,7 +239,7 @@ export default function BoardMain2() {
 				</DragDropContext>
 			</div>
 			{/* Preview Section */}
-			<div className="flex">
+			<div className="flex flex-wrap">
 				<div
 					style={{
 						width: '350px',
@@ -248,7 +248,7 @@ export default function BoardMain2() {
 						marginLeft: '50px',
 						padding: '20px',
 					}}
-					className="mt-4 p-4 border border-gray-300 rounded-lg shadow-lg bg-gray-50"
+					className="mt-4 p-4 border border-gray-300 rounded-lg shadow-lg  "
 				>
 					<h2 className="text-lg font-bold">Preview API Submission</h2>
 					<p className="mt-2">
@@ -256,7 +256,7 @@ export default function BoardMain2() {
 					</p>
 					<div className="mt-2">
 						<strong>Data:</strong>
-						<pre className="bg-gray-100 p-2 rounded-md overflow-x-auto">
+						<pre className="  p-2 rounded-md overflow-x-auto">
 							{JSON.stringify(preview.data, null, 2)}
 						</pre>
 					</div>
@@ -269,13 +269,13 @@ export default function BoardMain2() {
 						marginLeft: '50px',
 						padding: '20px',
 					}}
-					className="mt-4 p-4 border border-gray-300 rounded-lg shadow-lg bg-gray-50"
+					className="mt-4 p-4 border border-gray-300 rounded-lg shadow-lg  "
 				>
 					<h2 className="text-lg font-bold">Initial Data</h2>
 
 					<div className="mt-2">
 						<strong>Columns:</strong>
-						<pre className="bg-gray-100 p-2 rounded-md overflow-x-auto">
+						<pre className="  p-2 rounded-md overflow-x-auto">
 							{JSON.stringify(columnsOrder, null, 2)}
 						</pre>
 					</div>
@@ -288,13 +288,13 @@ export default function BoardMain2() {
 						marginLeft: '50px',
 						padding: '20px',
 					}}
-					className="mt-4 p-4 border border-gray-300 rounded-lg shadow-lg bg-gray-50"
+					className="mt-4 p-4 border border-gray-300 rounded-lg shadow-lg  "
 				>
 					<h2 className="text-lg font-bold">Initial Data</h2>
 
 					<div className="mt-2">
 						<strong>myCloumnData:</strong>
-						<pre className="bg-gray-100 p-2 rounded-md overflow-x-auto">
+						<pre className="  p-2 rounded-md overflow-x-auto">
 							{JSON.stringify(myCloumnData, null, 2)}
 						</pre>
 					</div>
@@ -307,13 +307,13 @@ export default function BoardMain2() {
 						marginLeft: '50px',
 						padding: '20px',
 					}}
-					className="mt-4 p-4 border border-gray-300 rounded-lg shadow-lg bg-gray-50"
+					className="mt-4 p-4 border border-gray-300 rounded-lg shadow-lg  "
 				>
 					<h2 className="text-lg font-bold">Initial Data</h2>
 
 					<div className="mt-2">
 						<strong>myItems:</strong>
-						<pre className="bg-gray-100 p-2 rounded-md overflow-x-auto">
+						<pre className="  p-2 rounded-md overflow-x-auto">
 							{JSON.stringify(myItems, null, 2)}
 						</pre>
 					</div>
