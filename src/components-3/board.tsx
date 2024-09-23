@@ -196,7 +196,11 @@ export default function BoardMain2() {
 
 	return (
 		<div className="w-full">
-			<div className="select-none">
+			<div
+				style={{
+					userSelect: 'none',
+				}}
+			>
 				<DragDropContext onDragEnd={handleDragDrop}>
 					<Droppable droppableId="ROOT" type="COLUMN" direction="horizontal">
 						{(provided) => (
