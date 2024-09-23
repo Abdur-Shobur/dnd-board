@@ -51,21 +51,22 @@ const myItems = [
 // Transform myCloumnData into BoardState format
 const myBoardState: BoardState = myCloumnData.reduce((acc, column) => {
 	acc[`column-${column.id}`] = {
-		id: `column-${column.id}`,
+		id: `column-${column.id}`, // Keeping the prefix for column IDs
 		title: column.title,
-		itemsOrder: column.itemsOrder.map((itemId) => `item-${itemId}`),
+		itemsOrder: column.itemsOrder.map((itemId) => `item-${itemId}`), // Keeping the prefix for item IDs
 	};
 	return acc;
-}, {});
+}, {} as BoardState); // Type assertion to BoardState
 
 // Transform myItems into ITEMS format
 const myItemsRecord: Record<string, Item> = myItems.reduce((acc, item) => {
 	acc[`item-${item.id}`] = {
+		// Keeping the prefix for item records
 		id: `item-${item.id}`,
 		title: item.title,
 	};
 	return acc;
-}, {});
+}, {} as Record<string, Item>); // Type assertion
 
 export default function BoardMain2() {
 	const [columnsOrder, setColumnsOrder] = useState<string[]>([
