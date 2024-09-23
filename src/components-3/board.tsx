@@ -36,6 +36,7 @@ const myCloumnData = [
 	{ id: '1', title: 'my column 1', itemsOrder: ['1', '2', '3'] },
 	{ id: '2', title: 'my column 2', itemsOrder: ['4', '5'] },
 	{ id: '3', title: 'my column 3', itemsOrder: ['6', '7'] },
+	{ id: '4', title: 'my column 4', itemsOrder: [] },
 ];
 
 const myItems = [
@@ -46,6 +47,7 @@ const myItems = [
 	{ id: '5', title: 'item 5' },
 	{ id: '6', title: 'item 6' },
 	{ id: '7', title: 'item 7' },
+	{ id: '8', title: 'item 8' },
 ];
 
 // Transform myCloumnData into BoardState format
@@ -73,6 +75,7 @@ export default function BoardMain2() {
 		'column-1',
 		'column-2',
 		'column-3',
+		'column-4',
 	]);
 	const [data, setData] = useState<BoardState>(myBoardState);
 
@@ -231,19 +234,84 @@ export default function BoardMain2() {
 			</DragDropContext>
 
 			{/* Preview Section */}
-			<div
-				style={{ width: '500px', marginLeft: '50px', padding: '20px' }}
-				className="mt-4 p-4 border border-gray-300 rounded-lg shadow-lg bg-gray-50"
-			>
-				<h2 className="text-lg font-bold">Preview</h2>
-				<p className="mt-2">
-					<strong>API:</strong> {preview.api}
-				</p>
-				<div className="mt-2">
-					<strong>Data:</strong>
-					<pre className="bg-gray-100 p-2 rounded-md overflow-x-auto">
-						{JSON.stringify(preview.data, null, 2)}
-					</pre>
+			<div className="flex">
+				<div
+					style={{
+						width: '350px',
+						maxHeight: '500px',
+						overflow: 'auto',
+						marginLeft: '50px',
+						padding: '20px',
+					}}
+					className="mt-4 p-4 border border-gray-300 rounded-lg shadow-lg bg-gray-50"
+				>
+					<h2 className="text-lg font-bold">Preview</h2>
+					<p className="mt-2">
+						<strong>API:</strong> {preview.api}
+					</p>
+					<div className="mt-2">
+						<strong>Data:</strong>
+						<pre className="bg-gray-100 p-2 rounded-md overflow-x-auto">
+							{JSON.stringify(preview.data, null, 2)}
+						</pre>
+					</div>
+				</div>
+				<div
+					style={{
+						width: '350px',
+						maxHeight: '500px',
+						overflow: 'auto',
+						marginLeft: '50px',
+						padding: '20px',
+					}}
+					className="mt-4 p-4 border border-gray-300 rounded-lg shadow-lg bg-gray-50"
+				>
+					<h2 className="text-lg font-bold">Initial Data</h2>
+
+					<div className="mt-2">
+						<strong>Columns:</strong>
+						<pre className="bg-gray-100 p-2 rounded-md overflow-x-auto">
+							{JSON.stringify(columnsOrder, null, 2)}
+						</pre>
+					</div>
+				</div>
+				<div
+					style={{
+						width: '350px',
+						maxHeight: '500px',
+						overflow: 'auto',
+						marginLeft: '50px',
+						padding: '20px',
+					}}
+					className="mt-4 p-4 border border-gray-300 rounded-lg shadow-lg bg-gray-50"
+				>
+					<h2 className="text-lg font-bold">Initial Data</h2>
+
+					<div className="mt-2">
+						<strong>myCloumnData:</strong>
+						<pre className="bg-gray-100 p-2 rounded-md overflow-x-auto">
+							{JSON.stringify(myCloumnData, null, 2)}
+						</pre>
+					</div>
+				</div>
+				<div
+					style={{
+						width: '350px',
+						maxHeight: '500px',
+						overflow: 'auto',
+						marginLeft: '50px',
+						padding: '20px',
+					}}
+					className="mt-4 p-4 border border-gray-300 rounded-lg shadow-lg bg-gray-50"
+				>
+					<h2 className="text-lg font-bold">Initial Data</h2>
+
+					<div className="mt-2">
+						<strong>myItems:</strong>
+						<pre className="bg-gray-100 p-2 rounded-md overflow-x-auto">
+							{JSON.stringify(myItems, null, 2)}
+						</pre>
+					</div>
 				</div>
 			</div>
 		</div>
