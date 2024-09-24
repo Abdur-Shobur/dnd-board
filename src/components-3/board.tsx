@@ -33,38 +33,42 @@ interface BoardState {
 }
 
 const myCloumnData = [
-	{ id: '1', title: 'my column 1', itemsOrder: ['1', '2', '3'] },
-	{ id: '2', title: 'my column 2', itemsOrder: ['4', '5'] },
-	{ id: '3', title: 'my column 3', itemsOrder: ['6', '7'] },
-	{ id: '4', title: 'my column 4', itemsOrder: [] },
+	{
+		id: 'column-1',
+		title: 'my column 1',
+		itemsOrder: ['item-1', 'item-2', 'item-3'],
+	},
+	{ id: 'column-2', title: 'my column 2', itemsOrder: ['item-4', 'item-5'] },
+	{ id: 'column-3', title: 'my column 3', itemsOrder: ['item-6', 'item-7'] },
+	{ id: 'column-4', title: 'my column 4', itemsOrder: [] },
 ];
 
 const myItems = [
-	{ id: '1', title: 'item 1' },
-	{ id: '2', title: 'item 2' },
-	{ id: '3', title: 'item 3' },
-	{ id: '4', title: 'item 4' },
-	{ id: '5', title: 'item 5' },
-	{ id: '6', title: 'item 6' },
-	{ id: '7', title: 'item 7' },
-	{ id: '8', title: 'item 8' },
+	{ id: 'item-1', title: 'item 1' },
+	{ id: 'item-2', title: 'item 2' },
+	{ id: 'item-3', title: 'item 3' },
+	{ id: 'item-4', title: 'item 4' },
+	{ id: 'item-5', title: 'item 5' },
+	{ id: 'item-6', title: 'item 6' },
+	{ id: 'item-7', title: 'item 7' },
+	{ id: 'item-8', title: 'item 8' },
 ];
 
 // Transform myCloumnData into BoardState format
 const myBoardState: BoardState = myCloumnData.reduce((acc, column) => {
-	acc[`column-${column.id}`] = {
-		id: `column-${column.id}`, // Keeping the prefix for column IDs
+	acc[column.id] = {
+		id: column.id, // Keeping the prefix for column IDs
 		title: column.title,
-		itemsOrder: column.itemsOrder.map((itemId) => `item-${itemId}`), // Keeping the prefix for item IDs
+		itemsOrder: column.itemsOrder.map((itemId) => itemId), // Keeping the prefix for item IDs
 	};
 	return acc;
 }, {} as BoardState); // Type assertion to BoardState
 
 // Transform myItems into ITEMS format
 const myItemsRecord: Record<string, Item> = myItems.reduce((acc, item) => {
-	acc[`item-${item.id}`] = {
+	acc[item.id] = {
 		// Keeping the prefix for item records
-		id: `item-${item.id}`,
+		id: item.id,
 		title: item.title,
 	};
 	return acc;
