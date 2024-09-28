@@ -151,7 +151,10 @@ export default function BoardMain2() {
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify(updatedData[source.droppableId]),
+				body: JSON.stringify({
+					source: updatedData[source.droppableId],
+					destination: null,
+				}),
 			});
 		} else {
 			const newSourceItems = [...sourceColumn.itemsOrder];
@@ -185,14 +188,10 @@ export default function BoardMain2() {
 					headers: {
 						'Content-Type': 'application/json',
 					},
-					body: JSON.stringify(updatedData[source.droppableId]),
-				}),
-				fetch(`/api/save-column/${destination.droppableId}`, {
-					method: 'PUT',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify(updatedData[destination.droppableId]),
+					body: JSON.stringify({
+						source: updatedData[source.droppableId],
+						destination: updatedData[destination.droppableId],
+					}),
 				}),
 			]);
 		}
